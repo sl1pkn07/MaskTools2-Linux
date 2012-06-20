@@ -76,7 +76,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_lutspa";
+      Signature signature("mt_lutspa");
 
       signature.add(Parameter(TYPE_CLIP, ""));
       signature.add(Parameter(String("relative"), "mode"));

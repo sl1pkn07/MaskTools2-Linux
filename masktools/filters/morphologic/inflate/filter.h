@@ -24,9 +24,9 @@ public:
       processors.push_back(Filtering::Processor<Processor>(Inflate_inflate8_asse2, Constraint(CPU_SSE2, 8, 1, 16, 16), 4));
    }
 
-   static Signature Filter::filter_signature()
+   static Signature filter_signature()
    {
-      Signature signature = "mt_inflate";
+      Signature signature("mt_inflate");
 
       signature.add( Parameter(TYPE_CLIP, "") );
       signature.add( Parameter(255, "thY") );

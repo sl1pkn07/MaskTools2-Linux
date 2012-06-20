@@ -34,7 +34,9 @@
 
 
 
-
+#ifdef __linux__
+#error don't include me
+#endif
 
 #ifndef __AVISYNTH_H__
 #define __AVISYNTH_H__

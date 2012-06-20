@@ -1,5 +1,7 @@
 #include "filter.h"
 
+#include <cstring>
+
 using namespace Filtering;
 
 typedef std::pair<int, int> Coordinates;

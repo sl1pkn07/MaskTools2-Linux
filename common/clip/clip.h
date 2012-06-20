@@ -15,9 +15,9 @@ protected:
 
 public:
 
-   Clip() : nFrames(-1), nWidth(-1), nHeight(-1), C(COLORSPACE_NONE) { }
-   Clip(int nWidth, int nHeight, int nFrames, Colorspace colorspace) : nFrames(nFrames), nWidth(nWidth), nHeight(nHeight), C(colorspace) { }
-   Clip(const Clip *clip) : nFrames(clip ? clip->frame_count() : -1), nWidth(clip ? clip->width() : -1), nHeight(clip ? clip->height() : -1), C(clip ? clip->colorspace() : COLORSPACE_NONE) { }
+   Clip() : nWidth(-1), nHeight(-1), nFrames(-1), C(COLORSPACE_NONE) { }
+   Clip(int nWidth, int nHeight, int nFrames, Colorspace colorspace) : nWidth(nWidth), nHeight(nHeight), nFrames(nFrames), C(colorspace) { }
+   Clip(const Clip *clip) : nWidth(clip ? clip->width() : -1), nHeight(clip ? clip->height() : -1), nFrames(clip ? clip->frame_count() : -1), C(clip ? clip->colorspace() : COLORSPACE_NONE) { }
    virtual ~Clip() { assert( !is_refed() ); }
    int width() const { return nWidth; }
    int height() const { return nHeight; }

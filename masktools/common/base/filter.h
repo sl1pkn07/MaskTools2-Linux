@@ -73,10 +73,10 @@ public:
       operators[1] = Operator( parameters["U"] );
       operators[2] = Operator( parameters["V"] );
 
-      if ( nXOffset < 0 || nXOffset > nWidth  ) nXOffset = 0;
-      if ( nYOffset < 0 || nYOffset > nHeight ) nYOffset = 0;
-      if ( nXOffset + nCoreWidth  > nWidth  || nCoreWidth  < 0 ) nCoreWidth  = nWidth - nXOffset;
-      if ( nYOffset + nCoreHeight > nHeight || nCoreHeight < 0 ) nCoreHeight = nHeight - nYOffset;
+      if ( nXOffset < 0 || nXOffset > ParentFilter::nWidth  ) nXOffset = 0;
+      if ( nYOffset < 0 || nYOffset > ParentFilter::nHeight ) nYOffset = 0;
+      if ( nXOffset + nCoreWidth  > ParentFilter::nWidth  || nCoreWidth  < 0 ) nCoreWidth  = ParentFilter::nWidth - nXOffset;
+      if ( nYOffset + nCoreHeight > ParentFilter::nHeight || nCoreHeight < 0 ) nCoreHeight = ParentFilter::nHeight - nYOffset;
 
       if ( parameters["chroma"].is_defined() )
       {
@@ -100,13 +100,13 @@ public:
       /* checks the operators */
       for ( int i = 0; i < 3; i++ )
       {
-         if ( operators[i] == COPY_THIRD && childs.size() < 3 )
+         if ( operators[i] == COPY_THIRD && ParentFilter::childs.size() < 3 )
             operators[i] = COPY_SECOND;
-         if ( operators[i] == COPY_SECOND && childs.size() < 2 )
+         if ( operators[i] == COPY_SECOND && ParentFilter::childs.size() < 2 )
             operators[i] = COPY;
       }
 
-      if ( is_in_place() )
+      if ( ParentFilter::is_in_place() )
       {
          /* in place filters copy differently */
          for ( int i = 0; i < 3; i++ )
@@ -124,24 +124,24 @@ public:
       print( LOG_DEBUG, "modes : %i %i %i\n", Mode(operators[0]), Mode(operators[1]), Mode(operators[2]) );
 
       /* cpu flags */
-      if ( !parameters["mmx"].toBool() ) flags &= ~CPU_MMX;
-      if ( !parameters["isse"].toBool() ) flags &= ~CPU_ISSE;
-      if ( !parameters["sse2"].toBool() ) flags &= ~CPU_SSE2;
-      if ( !parameters["sse3"].toBool() ) flags &= ~CPU_SSE3;
-      if ( !parameters["d3now"].toBool() ) flags &= ~CPU_3DNOW;
-      if ( !parameters["d3now2"].toBool() ) flags &= ~CPU_3DNOW2;
-      if ( !parameters["ssse3"].toBool() ) flags &= ~CPU_SSSE3;
-      if ( !parameters["sse4"].toBool() ) flags &= ~CPU_SSE4;
+      if ( !parameters["mmx"].toBool()    ) ParentFilter::flags &= ~CPU_MMX;
+      if ( !parameters["isse"].toBool()   ) ParentFilter::flags &= ~CPU_ISSE;
+      if ( !parameters["sse2"].toBool()   ) ParentFilter::flags &= ~CPU_SSE2;
+      if ( !parameters["sse3"].toBool()   ) ParentFilter::flags &= ~CPU_SSE3;
+      if ( !parameters["d3now"].toBool()  ) ParentFilter::flags &= ~CPU_3DNOW;
+      if ( !parameters["d3now2"].toBool() ) ParentFilter::flags &= ~CPU_3DNOW2;
+      if ( !parameters["ssse3"].toBool()  ) ParentFilter::flags &= ~CPU_SSSE3;
+      if ( !parameters["sse4"].toBool()   ) ParentFilter::flags &= ~CPU_SSE4;
 
-      print( LOG_DEBUG, "using cpu flags : 0x%x\n", flags );
+      print( LOG_DEBUG, "using cpu flags : 0x%X\n", ParentFilter::flags );
 
       /* chroma offsets and box */
-      if ( C != COLORSPACE_Y8 && C != COLORSPACE_NONE )
+      if ( ParentFilter::C != COLORSPACE_Y8 && ParentFilter::C != COLORSPACE_NONE )
       {
-         nXOffsetUV = nXOffset / width_ratios[1][C];
-         nYOffsetUV = nYOffset / height_ratios[1][C];
-         nCoreWidthUV = (nXOffset + nCoreWidth) / width_ratios[1][C] - nXOffsetUV;
-         nCoreHeightUV = (nYOffset + nCoreHeight) / height_ratios[1][C] - nYOffsetUV;
+         nXOffsetUV = nXOffset / width_ratios[1][ParentFilter::C];
+         nYOffsetUV = nYOffset / height_ratios[1][ParentFilter::C];
+         nCoreWidthUV = (nXOffset + nCoreWidth) / width_ratios[1][ParentFilter::C] - nXOffsetUV;
+         nCoreHeightUV = (nYOffset + nCoreHeight) / height_ratios[1][ParentFilter::C] - nYOffsetUV;
       }
 
       /* effective offset */
@@ -165,8 +165,8 @@ public:
       //prefetches.push_back(Processor<Prefetch>(&prefetch_isse, Constraint(CPU_ISSE, 1, 1, 1, 1), 1));
 
       /* check the colorspace */
-      if ( C == COLORSPACE_NONE )
-         error = "unsupported colorspace. masktools only support planar YUV colorspaces (YV12, YV16, YV24)";
+      if ( ParentFilter::C == COLORSPACE_NONE )
+         ParentFilter::error = "unsupported colorspace. masktools only support planar YUV colorspaces (YV12, YV16, YV24)";
    }
 
    void process_plane(int n, const Plane<Byte> &output_plane, int nPlane)
@@ -201,16 +201,16 @@ public:
       Frame<Byte> output = output_frame.offset( nXOffset, nYOffset, nCoreWidth, nCoreHeight );
 
       for ( int i = 0; i < int( input_configuration().size() ); i++ )
-         frames.push_back( childs[ input_configuration()[i].index() ]->get_const_frame( n + input_configuration()[i].offset() ).offset( nXOffset, nYOffset, nCoreWidth, nCoreHeight ) );
+         frames.push_back( ParentFilter::childs[ input_configuration()[i].index() ]->get_const_frame( n + input_configuration()[i].offset() ).offset( nXOffset, nYOffset, nCoreWidth, nCoreHeight ) );
 
-      for ( int i = 0; i < plane_counts[C]; i++ )
-         constraints[i] = Constraint( flags, output.plane(i) );
+      for ( int i = 0; i < plane_counts[ParentFilter::C]; i++ )
+         constraints[i] = Constraint( ParentFilter::flags, output.plane(i) );
 
       for ( int i = 0; i < int(frames.size()); i++ )
          for ( int j = 0; j < plane_counts[frames[i].colorspace()]; j++ )
             constraints[j] = Constraint( constraints[j], frames[i].plane(j) );
 
-      for ( int i = 0; i < plane_counts[C]; i++ )
+      for ( int i = 0; i < plane_counts[ParentFilter::C]; i++ )
          process_plane( n, output.plane(i), i );
 
       frames.clear();

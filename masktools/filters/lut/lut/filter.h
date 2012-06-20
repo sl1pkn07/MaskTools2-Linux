@@ -53,7 +53,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_lut";
+      Signature signature("mt_lut");
 
       signature.add(Parameter(TYPE_CLIP, ""));
       signature.add(Parameter(String("x"), "expr"));

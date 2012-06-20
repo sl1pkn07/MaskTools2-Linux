@@ -1,0 +1,7 @@
+.objs/
+*.so
+.mobjs
+.c_inclrc
+common/build/common.depend
+masktools/build/masktools.layout
+masktools/build/masktools.depend

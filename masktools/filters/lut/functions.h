@@ -1,6 +1,8 @@
 #ifndef __Mt_Lut_Functions_H__
 #define __Mt_Lut_Functions_H__
 
+#include <cstring>
+
 namespace Filtering { namespace MaskTools { namespace Filters { namespace Lut {
 
 typedef enum {

@@ -89,7 +89,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_lutsx";
+      Signature signature("mt_lutsx");
 
       signature.add( Parameter( TYPE_CLIP, "" ) );
       signature.add( Parameter( TYPE_CLIP, "" ) );

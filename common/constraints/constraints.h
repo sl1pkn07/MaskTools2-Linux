@@ -89,6 +89,12 @@ public:
 
 };
 
+#ifdef __linux__
+#define GNU_TYPENAME typename
+#else
+#define GNU_TYPENAME
+#endif
+
 template<class P>
 class ProcessorList : public std::list<Processor<P> >
 {
@@ -99,7 +105,7 @@ public:
    {
       int nBestSpeed = -1;
       Processor<P> best_proc;
-      for ( ProcessorList<P>::const_iterator it = begin(); it != end(); it++ )
+      for (GNU_TYPENAME ProcessorList<P>::const_iterator it = this->begin(); it != this->end(); it++ )
       {
          if ( it->speed() > nBestSpeed && it->respect(constraint) )
          {

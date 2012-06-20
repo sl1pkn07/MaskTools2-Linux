@@ -17,10 +17,10 @@ static double inferior        (double x, double y, double z) { UNUSED(z); return
 static double inferiorStrict  (double x, double y, double z) { UNUSED(z); return x < y ? 1 : -1; }
 static double superior        (double x, double y, double z) { UNUSED(z); return x >= y ? 1 : -1; }
 static double superiorStrict  (double x, double y, double z) { UNUSED(z); return x > y ? 1 : -1; }
-static double and             (double x, double y, double z) { UNUSED(z); return x > 0 && y > 0 ? 1 : -1; }
-static double or              (double x, double y, double z) { UNUSED(z); return x > 0 || y > 0 ? 1 : -1; }
+static double and3            (double x, double y, double z) { UNUSED(z); return x > 0 && y > 0 ? 1 : -1; }
+static double or3             (double x, double y, double z) { UNUSED(z); return x > 0 || y > 0 ? 1 : -1; }
 static double andNot          (double x, double y, double z) { UNUSED(z); return x > 0 && y <= 0 ? 1 : -1; }
-static double xor             (double x, double y, double z) { UNUSED(z); return (x > 0 && y <= 0) || (x <= 0 && y > 0)? 1 : -1; }
+static double xor3            (double x, double y, double z) { UNUSED(z); return (x > 0 && y <= 0) || (x <= 0 && y > 0)? 1 : -1; }
 static double andUB           (double x, double y, double z) { UNUSED(z); return double(clip<Uint64, double>(x) & clip<Uint64, double>(y)); }
 static double orUB            (double x, double y, double z) { UNUSED(z); return double(clip<Uint64, double>(x) | clip<Uint64, double>(y)); }
 static double xorUB           (double x, double y, double z) { UNUSED(z); return double(clip<Uint64, double>(x) ^ clip<Uint64, double>(y)); }
@@ -33,19 +33,19 @@ static double xorSB           (double x, double y, double z) { UNUSED(z); return
 static double negateSB        (double x, double y, double z) { UNUSED(y); UNUSED(z); return double(~clip<Int64, double>(x)); }
 static double posshiftSB      (double x, double y, double z) { UNUSED(z); return y >= 0 ? double(clip<Int64, double>(x) << clip<Int64, double>(y)) : double(clip<Int64, double>(x) >> clip<Int64, double>(-y)); }
 static double negshiftSB      (double x, double y, double z) { UNUSED(z); return y >= 0 ? double(clip<Int64, double>(x) >> clip<Int64, double>(y)) : double(clip<Int64, double>(x) << clip<Int64, double>(-y)); }
-static double cos             (double x, double y, double z) { UNUSED(y); UNUSED(z); return cos(x); }
-static double sin             (double x, double y, double z) { UNUSED(y); UNUSED(z); return sin(x); }
-static double tan             (double x, double y, double z) { UNUSED(y); UNUSED(z); return tan(x); }
-static double exp             (double x, double y, double z) { UNUSED(y); UNUSED(z); return exp(x); }
-static double log             (double x, double y, double z) { UNUSED(y); UNUSED(z); return log(x); }
-static double abs             (double x, double y, double z) { UNUSED(y); UNUSED(z); return abs(x); }
+static double cos3            (double x, double y, double z) { UNUSED(y); UNUSED(z); return cos(x); }
+static double sin3            (double x, double y, double z) { UNUSED(y); UNUSED(z); return sin(x); }
+static double tan3            (double x, double y, double z) { UNUSED(y); UNUSED(z); return tan(x); }
+static double exp3            (double x, double y, double z) { UNUSED(y); UNUSED(z); return exp(x); }
+static double log3            (double x, double y, double z) { UNUSED(y); UNUSED(z); return log(x); }
+static double abs3            (double x, double y, double z) { UNUSED(y); UNUSED(z); return abs(x); }
 static double acos            (double x, double y, double z) { UNUSED(y); UNUSED(z); return acos(x); }
 static double asin            (double x, double y, double z) { UNUSED(y); UNUSED(z); return asin(x); }
 static double atan            (double x, double y, double z) { UNUSED(y); UNUSED(z); return atan(x); }
 static double round           (double x, double y, double z) { UNUSED(y); UNUSED(z); return double(convert<Int64, double>( x )); }
 static double clip            (double x, double y, double z) { return clip<double, double>( x, y, z ); }
-static double min             (double x, double y, double z) { UNUSED(z); return min<double>( x, y ); }
-static double max             (double x, double y, double z) { UNUSED(z); return max<double>( x, y ); }
+static double min3            (double x, double y, double z) { UNUSED(z); return min<double>( x, y ); }
+static double max3            (double x, double y, double z) { UNUSED(z); return max<double>( x, y ); }
 static double floor           (double x, double y, double z) { UNUSED(y); UNUSED(z); return floor(x); }
 static double ceil            (double x, double y, double z) { UNUSED(y); UNUSED(z); return ceil(x); }
 static double trunc           (double x, double y, double z) { UNUSED(y); UNUSED(z); return double(Int64(x)); }
@@ -64,10 +64,10 @@ Symbol Symbol::Inferior       ("<=", OPERATOR, 2, inferior);
 Symbol Symbol::InferiorStrict ("<" , OPERATOR, 2, inferiorStrict);
 Symbol Symbol::Superior       (">=", OPERATOR, 2, superior);
 Symbol Symbol::SuperiorStrict (">" , OPERATOR, 2, superiorStrict);
-Symbol Symbol::And            ("&" , OPERATOR, 2, and);
-Symbol Symbol::Or             ("|" , OPERATOR, 2, or);
+Symbol Symbol::And            ("&" , OPERATOR, 2, and3);
+Symbol Symbol::Or             ("|" , OPERATOR, 2, or3);
 Symbol Symbol::AndNot         ("&!", OPERATOR, 2, andNot);
-Symbol Symbol::Xor            ("°" , "@", OPERATOR, 2, xor);
+Symbol Symbol::Xor            ("°" , "@", OPERATOR, 2, xor3);
 Symbol Symbol::AndUB          ("&u" , OPERATOR, 2, andUB);
 Symbol Symbol::OrUB           ("|u" , OPERATOR, 2, orUB);
 Symbol Symbol::XorUB          ("°u" , "@u", OPERATOR, 2, xorUB);
@@ -84,19 +84,19 @@ Symbol Symbol::Pi             ("pi", 3.1415927, NUMBER  , 0, NULL);
 Symbol Symbol::X              ("x" , VARIABLE_X, 0, NULL);  
 Symbol Symbol::Y              ("y" , VARIABLE_Y, 0, NULL);
 Symbol Symbol::Z              ("z" , VARIABLE_Z, 0, NULL);
-Symbol Symbol::Cos            ("cos", FUNCTION, 1, cos);
-Symbol Symbol::Sin            ("sin", FUNCTION, 1, sin);
-Symbol Symbol::Tan            ("tan", FUNCTION, 1, tan);
-Symbol Symbol::Log            ("log", FUNCTION, 1, log);
-Symbol Symbol::Exp            ("exp", FUNCTION, 1, exp);
-Symbol Symbol::Abs            ("abs", FUNCTION, 1, abs);
+Symbol Symbol::Cos            ("cos", FUNCTION, 1, cos3);
+Symbol Symbol::Sin            ("sin", FUNCTION, 1, sin3);
+Symbol Symbol::Tan            ("tan", FUNCTION, 1, tan3);
+Symbol Symbol::Log            ("log", FUNCTION, 1, log3);
+Symbol Symbol::Exp            ("exp", FUNCTION, 1, exp3);
+Symbol Symbol::Abs            ("abs", FUNCTION, 1, abs3);
 Symbol Symbol::Atan           ("atan", FUNCTION, 1, atan);
 Symbol Symbol::Acos           ("acos", FUNCTION, 1, acos);
 Symbol Symbol::Asin           ("asin", FUNCTION, 1, asin);
 Symbol Symbol::Round          ("round", FUNCTION, 1, round);
 Symbol Symbol::Clip           ("clip", FUNCTION, 3, clip);
-Symbol Symbol::Min            ("min", FUNCTION, 2, min);
-Symbol Symbol::Max            ("max", FUNCTION, 2, max);
+Symbol Symbol::Min            ("min", FUNCTION, 2, min3);
+Symbol Symbol::Max            ("max", FUNCTION, 2, max3);
 Symbol Symbol::Ceil           ("ceil", FUNCTION, 1, ceil);
 Symbol Symbol::Floor          ("floor", FUNCTION, 1, floor);
 Symbol Symbol::Trunc          ("trunc", FUNCTION, 1, trunc);

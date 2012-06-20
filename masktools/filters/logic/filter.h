@@ -23,6 +23,7 @@ DEFINE_PROCESSOR(and);
 DEFINE_PROCESSOR(or);
 DEFINE_PROCESSOR(andn);
 DEFINE_PROCESSOR(xor);
+
 DEFINE_PROCESSOR_NO_MMX(max);
 DEFINE_PROCESSOR_NO_MMX(min);
 
@@ -134,7 +135,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_logic";
+      Signature signature("mt_logic");
 
       signature.add(Parameter(TYPE_CLIP, ""));
       signature.add(Parameter(TYPE_CLIP, ""));

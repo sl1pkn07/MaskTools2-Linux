@@ -1,4 +1,5 @@
 #include "filter.h"
+#include <cstring>
 
 using namespace Filtering;
 

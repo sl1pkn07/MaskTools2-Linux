@@ -7,7 +7,7 @@ namespace Filtering { namespace Avisynth2x {
 
 Value AVSValueToValue(const AVSValue& value, const Parameter &param)
 {
-   switch ( Type( Value( param ) ) )
+   switch ( Type( param.operator Value() ) )
    {
    case TYPE_INT: return Value( value.AsInt() );
    case TYPE_STRING: return Value( String( value.AsString() ) );

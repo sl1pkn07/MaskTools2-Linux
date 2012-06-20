@@ -2,6 +2,8 @@
 #define __Common_Utils_H__
 
 #include <assert.h>
+#include <cstdlib>
+#include <cstdarg>
 #include <string>
 #include <vector>
 #include <list>
@@ -11,11 +13,17 @@
 #include <float.h>
 
 #define NOMINMAX // no min & max macros
+#ifndef __linux__
 #include <windows.h>
+#else
+#include <wrap_windows.h>
+#endif
 #undef NOMINMAX
 
+#ifndef __linux__
 #pragma warning(disable:4267) // disable possible loss of data conversion
 #pragma warning(disable:4127) // disable conditional expression is constant
+#endif
 
 #define UNUSED(x) x
 
@@ -26,8 +34,10 @@ typedef char Char;
 typedef short Short;
 typedef unsigned char Byte;
 typedef unsigned short Word;
+#ifndef __linux__
 typedef __int64 Int64;
 typedef unsigned _int64 Uint64;
+#endif
 typedef float Float;
 typedef double Double;
 typedef std::string String;
@@ -117,22 +127,28 @@ template<typename T> T max(T a, T b) { return a > b ? a : b; }
 
 static inline double fix(double a) { return _isnan(a) || !_finite(a) ? 0 : a; }
 
+#ifdef __linux__
+#define STATIC_TEMPLATE
+#else
+#define STATIC_TEMPLATE static
+#endif
+
 /* abs */
 template<typename T> T abs(T x) { return x < 0 ? -x : x; }
-template<> static inline Byte abs<Byte>(Byte x) { return x; } // unsigned abs = nop
+template<> STATIC_TEMPLATE inline Byte abs<Byte>(Byte x) { return x; } // unsigned abs = nop
 
 /* max_value, for integer type */
 template<typename T> T max_value() { return T(-1); } // unsigned only
-template<> static inline int max_value<int>() { return 0x7fffffff; }
-template<> static inline Short max_value<Short>() { return (1 << 15) - 1; }
-template<> static inline Char max_value<Char>() { return (1 << 7) - 1; }
-template<> static inline Int64 max_value<Int64>() { return 0x7FFFFFFFFFFFFFFFLL; }
+template<> STATIC_TEMPLATE inline int max_value<int>() { return 0x7fffffff; }
+template<> STATIC_TEMPLATE inline Short max_value<Short>() { return (1 << 15) - 1; }
+template<> STATIC_TEMPLATE inline Char max_value<Char>() { return (1 << 7) - 1; }
+template<> STATIC_TEMPLATE inline Int64 max_value<Int64>() { return 0x7FFFFFFFFFFFFFFFLL; }
 
 /* min_value, for integer type */
 template<typename T> T min_value() { return 0; } // unsigned only
-template<> static inline Short min_value<Short>() { return -(1 << 15); }
-template<> static inline Char min_value<Char>() { return -(1 << 7); }
-template<> static inline Int64 min_value<Int64>() { return -1LL << 63LL; }
+template<> STATIC_TEMPLATE inline Short min_value<Short>() { return -(1 << 15); }
+template<> STATIC_TEMPLATE inline Char min_value<Char>() { return -(1 << 7); }
+template<> STATIC_TEMPLATE inline Int64 min_value<Int64>() { return -1LL << 63LL; }
 
 /* ceiled & floored round */
 template<typename T> T ceiled(T x, T mod) { return ((x + mod - 1) / mod) * mod; }
@@ -140,22 +156,22 @@ template<typename T> T floored(T x, T mod) { return (x / mod) * mod; }
 
 /* zero_threshold */
 template<typename T> T zero_threshold() { return 1; } // integer types
-template<> static inline Float zero_threshold<Float>() { return (Float)0.00001; } 
-template<> static inline Double zero_threshold<Double>() { return 0.00001; } 
+template<> STATIC_TEMPLATE inline Float zero_threshold<Float>() { return (Float)0.00001; } 
+template<> STATIC_TEMPLATE inline Double zero_threshold<Double>() { return 0.00001; } 
 
 /* conversion from and to */
 template<typename To, typename From> To convert(From x) { return To(x); }
-template<> static inline Char convert<Char, Double>(Double x) { return x >= 0 ? Char(x + 0.5) : Char(x - 0.5); }
-template<> static inline Byte convert<Byte, Double>(Double x) { return Byte(x + 0.5); }
-template<> static inline Int64 convert<Int64, Double>(Double x) { return x >= 0 ? Int64(x + 0.5) : Int64(x - 0.5); }
-template<> static inline Uint64 convert<Uint64, Double>(Double x) { return Uint64(x + 0.5); }
-template<> static inline Short convert<Short, Double>(Double x) { return x >= 0 ? Short(x + 0.5) : Short(x - 0.5); }
-template<> static inline int convert<int, Double>(Double x) { return x >= 0 ? int(x + 0.5) : int(x - 0.5); }
+template<> STATIC_TEMPLATE inline Char convert<Char, Double>(Double x) { return x >= 0 ? Char(x + 0.5) : Char(x - 0.5); }
+template<> STATIC_TEMPLATE inline Byte convert<Byte, Double>(Double x) { return Byte(x + 0.5); }
+template<> STATIC_TEMPLATE inline Int64 convert<Int64, Double>(Double x) { return x >= 0 ? Int64(x + 0.5) : Int64(x - 0.5); }
+template<> STATIC_TEMPLATE inline Uint64 convert<Uint64, Double>(Double x) { return Uint64(x + 0.5); }
+template<> STATIC_TEMPLATE inline Short convert<Short, Double>(Double x) { return x >= 0 ? Short(x + 0.5) : Short(x - 0.5); }
+template<> STATIC_TEMPLATE inline int convert<int, Double>(Double x) { return x >= 0 ? int(x + 0.5) : int(x - 0.5); }
 
 /* rounded division */
 template<typename T> T rounded_division(T x, T y) { return x / y; }
-template<> static inline int rounded_division<int>(int x, int y) { return x > 0 ? (x + (y >> 1)) / y : (x - (y >> 1)) / y; }
-template<> static inline Int64 rounded_division<Int64>(Int64 x, Int64 y) { return x > 0 ? (x + (y >> 1)) / y : (x - (y >> 1)) / y; }
+template<> STATIC_TEMPLATE inline int rounded_division<int>(int x, int y) { return x > 0 ? (x + (y >> 1)) / y : (x - (y >> 1)) / y; }
+template<> STATIC_TEMPLATE inline Int64 rounded_division<Int64>(Int64 x, Int64 y) { return x > 0 ? (x + (y >> 1)) / y : (x - (y >> 1)) / y; }
 
 /* clip */
 template<typename T, typename U> T clip(U x, U mini = U(min_value<T>()), U maxi = U(max_value<T>())) { return convert<T, U>( min<U>( maxi, max<U>( mini, x ) ) ); }
@@ -270,7 +286,7 @@ public:
 
       std::list<int> rr, rc;
       std::vector<int> nr, nc;
-      for (int i = 0; i < int(size()); i++ )
+      for (int i = 0; i < int(this->size()); i++ )
       {
          rr.push_back(i);
          rc.push_back(i);

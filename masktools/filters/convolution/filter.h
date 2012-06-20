@@ -122,7 +122,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_convolution";
+      Signature signature("mt_convolution");
 
       signature.add(Parameter(TYPE_CLIP, ""));
       signature.add(Parameter(String("1 1 1"), "horizontal"));

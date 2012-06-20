@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="masktools" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="release-avs25 Win32">
+				<Option output="C:/Program Files (x86)/AviSynth 2.5/plugins/mt_masktools" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Linux/release-avs25 Win32" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DMASKTOOLS_EXPORTS" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_25" />
+					<Add option="-Wall" />
+					<Add option="-O3" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+				<Linker>
+					<Add directory="../../bin/" />
+				</Linker>
+			</Target>
+			<Target title="release-avs25 x64">
+				<Option output="C:/Program Files (x86)/AviSynth 2.5/plugins64/mt_masktools" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Linux/release-avs25 x64" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-DWIN64" />
+					<Add option="-D_AMD64_" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DMASKTOOLS_EXPORTS" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_25" />
+					<Add option="-Wall" />
+					<Add option="-O2" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+				<Linker>
+					<Add directory="../../bin/" />
+				</Linker>
+			</Target>
+			<Target title="release-avs26 Win32">
+				<Option output="C:/Program Files (x86)/AviSynth 2.5/plugins/mt_masktools" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Linux/release-avs26 Win32" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DMASKTOOLS_EXPORTS" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_26" />
+					<Add option="-Wall" />
+					<Add option="-O3" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+				<Linker>
+					<Add directory="../../bin/" />
+				</Linker>
+			</Target>
+			<Target title="release-avs26 x64">
+				<Option output="C:/Program Files (x86)/AviSynth 2.5/plugins64/mt_masktools" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Linux/release-avs26 x64" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-DWIN64" />
+					<Add option="-D_AMD64_" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DMASKTOOLS_EXPORTS" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_26" />
+					<Add option="-Wall" />
+					<Add option="-O3" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+				<Linker>
+					<Add directory="../../bin/" />
+				</Linker>
+			</Target>
+			<Target title="debug-avs25 Win32">
+				<Option output="C:/Program Files (x86)/AviSynth 2.5/plugins/mt_masktools" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Linux/debug-avs25 Win32" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DMASKTOOLS_EXPORTS" />
+					<Add option="-DDEBUG" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_25" />
+					<Add option="-Wall" />
+					<Add option="-O0" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="common_d" />
+					<Add directory="../../bin/" />
+				</Linker>
+			</Target>
+			<Target title="debug-avs25 x64">
+				<Option output="C:/Program Files (x86)/AviSynth 2.5/plugins64/mt_masktools" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Linux/debug-avs25 x64" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-DWIN64" />
+					<Add option="-D_AMD64_" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DMASKTOOLS_EXPORTS" />
+					<Add option="-DDEBUG" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_25" />
+					<Add option="-Wall" />
+					<Add option="-O0" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="common_d" />
+					<Add directory="../../bin/" />
+				</Linker>
+			</Target>
+			<Target title="debug-avs26 Win32">
+				<Option output="C:/Program Files (x86)/AviSynth 2.5/plugins/mt_masktools" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Linux/debug-avs26 Win32" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DMASKTOOLS_EXPORTS" />
+					<Add option="-DDEBUG" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_26" />
+					<Add option="-Wall" />
+					<Add option="-O0" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="common_d" />
+					<Add directory="../../bin/" />
+				</Linker>
+			</Target>
+			<Target title="debug-avs26 x64">
+				<Option output="C:/Program Files (x86)/AviSynth 2.5/plugins64/mt_masktools" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Linux/debug-avs26 x64" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-DWIN64" />
+					<Add option="-D_AMD64_" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DMASKTOOLS_EXPORTS" />
+					<Add option="-DDEBUG" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_26" />
+					<Add option="-Wall" />
+					<Add option="-O0" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="common_d" />
+					<Add directory="../../bin/" />
+				</Linker>
+			</Target>
+			<Target title="release-linux">
+				<Option output="C:/Program Files (x86)/AviSynth 2.5/plugins/mt_masktools" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Linux/release-avs25 Win32" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-Wall" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_LINUX" />
+					<Add option="-D_USRDLL" />
+					<Add option="-DMASKTOOLS_EXPORTS" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_25" />
+					<Add directory="../../common/build/Linux/include/" />
+					<Add directory="../../avs2x" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+				<Linker>
+					<Add directory="../../bin/" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="../../common/clip/clip.h" />
+		<Unit filename="../../common/params/params.h" />
+		<Unit filename="../../common/utils/utils.h" />
+		<Unit filename="../avs2x/wrapper.cpp" />
+		<Unit filename="../common/asm/morphologic.asm">
+			<Option target="release-avs25 Win32" />
+			<Option target="release-avs25 x64" />
+			<Option target="release-avs26 Win32" />
+			<Option target="release-avs26 x64" />
+			<Option target="debug-avs26 Win32" />
+			<Option target="debug-avs26 x64" />
+			<Option target="release-linux" />
+		</Unit>
+		<Unit filename="../common/asm/support.asm">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../common/base/filter.h" />
+		<Unit filename="../common/clip/clip.cpp" />
+		<Unit filename="../common/clip/clip.h" />
+		<Unit filename="../common/common.h" />
+		<Unit filename="../common/mt_resource.h" />
+		<Unit filename="../common/mt_resource.rc" />
+		<Unit filename="../common/params/params.h" />
+		<Unit filename="../documentation/mt_masktools.html" />
+		<Unit filename="../documentation/readme.txt" />
+		<Unit filename="../filters/binarize/filter.h" />
+		<Unit filename="../filters/binarize/functions.asm" />
+		<Unit filename="../filters/binarize/functions.cpp" />
+		<Unit filename="../filters/blur/mapped/filter.h" />
+		<Unit filename="../filters/blur/mapped/functions.cpp" />
+		<Unit filename="../filters/convolution/filter.h" />
+		<Unit filename="../filters/convolution/functions.cpp" />
+		<Unit filename="../filters/gradient/filter.h" />
+		<Unit filename="../filters/gradient/functions.cpp" />
+		<Unit filename="../filters/invert/filter.h" />
+		<Unit filename="../filters/invert/functions.asm" />
+		<Unit filename="../filters/invert/functions.cpp" />
+		<Unit filename="../filters/logic/filter.h" />
+		<Unit filename="../filters/logic/functions.asm" />
+		<Unit filename="../filters/logic/functions.cpp" />
+		<Unit filename="../filters/lut/functions.h" />
+		<Unit filename="../filters/lut/lut/filter.h" />
+		<Unit filename="../filters/lut/lut/functions.cpp" />
+		<Unit filename="../filters/lut/lutf/filter.h" />
+		<Unit filename="../filters/lut/lutf/functions.cpp" />
+		<Unit filename="../filters/lut/luts/filter.h" />
+		<Unit filename="../filters/lut/luts/functions.cpp" />
+		<Unit filename="../filters/lut/lutspa/filter.h" />
+		<Unit filename="../filters/lut/lutspa/functions.cpp" />
+		<Unit filename="../filters/lut/lutsx/filter.h" />
+		<Unit filename="../filters/lut/lutsx/functions.cpp" />
+		<Unit filename="../filters/lut/lutxy/filter.h" />
+		<Unit filename="../filters/lut/lutxy/functions.cpp" />
+		<Unit filename="../filters/lut/lutxyz/filter.h" />
+		<Unit filename="../filters/lut/lutxyz/functions.cpp" />
+		<Unit filename="../filters/mask/edge/filter.h" />
+		<Unit filename="../filters/mask/edge/functions.asm" />
+		<Unit filename="../filters/mask/edge/functions.cpp" />
+		<Unit filename="../filters/mask/functions.h" />
+		<Unit filename="../filters/mask/hysteresis/filter.h" />
+		<Unit filename="../filters/mask/hysteresis/functions.cpp" />
+		<Unit filename="../filters/mask/motion/filter.h" />
+		<Unit filename="../filters/mask/motion/functions.asm" />
+		<Unit filename="../filters/mask/motion/functions.cpp" />
+		<Unit filename="../filters/merge/filter.h" />
+		<Unit filename="../filters/merge/functions.asm" />
+		<Unit filename="../filters/merge/functions.cpp" />
+		<Unit filename="../filters/morphologic/deflate/filter.h" />
+		<Unit filename="../filters/morphologic/deflate/functions.asm" />
+		<Unit filename="../filters/morphologic/deflate/functions.cpp" />
+		<Unit filename="../filters/morphologic/expand/filter.h" />
+		<Unit filename="../filters/morphologic/expand/functions.asm" />
+		<Unit filename="../filters/morphologic/expand/functions.cpp" />
+		<Unit filename="../filters/morphologic/filter.h" />
+		<Unit filename="../filters/morphologic/functions.h" />
+		<Unit filename="../filters/morphologic/inflate/filter.h" />
+		<Unit filename="../filters/morphologic/inflate/functions.asm" />
+		<Unit filename="../filters/morphologic/inflate/functions.cpp" />
+		<Unit filename="../filters/morphologic/inpand/filter.h" />
+		<Unit filename="../filters/morphologic/inpand/functions.asm" />
+		<Unit filename="../filters/morphologic/inpand/functions.cpp" />
+		<Unit filename="../filters/support/adddiff/filter.h" />
+		<Unit filename="../filters/support/adddiff/functions.asm" />
+		<Unit filename="../filters/support/adddiff/functions.cpp" />
+		<Unit filename="../filters/support/average/filter.h" />
+		<Unit filename="../filters/support/average/functions.asm" />
+		<Unit filename="../filters/support/average/functions.cpp" />
+		<Unit filename="../filters/support/clamp/filter.h" />
+		<Unit filename="../filters/support/clamp/functions.asm" />
+		<Unit filename="../filters/support/clamp/functions.cpp" />
+		<Unit filename="../filters/support/makediff/filter.h" />
+		<Unit filename="../filters/support/makediff/functions.asm" />
+		<Unit filename="../filters/support/makediff/functions.cpp" />
+		<Unit filename="../helpers/avs2x/helpers_avs2x.cpp" />
+		<Unit filename="../helpers/avs2x/helpers_avs2x.h" />
+		<Unit filename="../helpers/forms/forms.cpp" />
+		<Unit filename="../helpers/forms/forms.h" />
+		<Unit filename="../helpers/parser/spirit.cpp" />
+		<Unit filename="../helpers/parser/spirit.h" />
+		<Unit filename="../softwire/softwire.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../softwire/softwire.h" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

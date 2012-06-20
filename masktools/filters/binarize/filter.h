@@ -94,7 +94,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_binarize";
+      Signature signature("mt_binarize");
 
       signature.add( Parameter( TYPE_CLIP, "" ) );
       signature.add( Parameter( 128, "threshold" ) );

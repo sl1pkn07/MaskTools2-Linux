@@ -63,7 +63,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_lutxyz";
+      Signature signature("mt_lutxyz");
 
       signature.add(Parameter(TYPE_CLIP, ""));
       signature.add(Parameter(TYPE_CLIP, ""));

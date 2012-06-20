@@ -88,7 +88,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_luts";
+      Signature signature("mt_luts");
 
       signature.add( Parameter( TYPE_CLIP, "" ) );
       signature.add( Parameter( TYPE_CLIP, "" ) );

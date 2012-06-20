@@ -43,7 +43,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_adddiff";
+      Signature signature("mt_adddiff");
 
       signature.add(Parameter(TYPE_CLIP, ""));
       signature.add(Parameter(TYPE_CLIP, ""));

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="common" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="debug-avs25 Win32">
+				<Option output="../../bin/common_d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Linux/debug-avs25 Win32" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-DDEBUG" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_25" />
+					<Add option="-Wall" />
+					<Add option="-O0" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+			</Target>
+			<Target title="debug-avs25 x64">
+				<Option output="../../bin/common_d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Linux/debug-avs25 x64" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-DWIN64" />
+					<Add option="-D_AMD64_" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-DDEBUG" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_25" />
+					<Add option="-Wall" />
+					<Add option="-O0" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+			</Target>
+			<Target title="release-avs25 Win32">
+				<Option output="Linux/release-avs25 Win32/common" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Linux/release-avs25 Win32" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_25" />
+					<Add option="-Wall" />
+					<Add option="-O3" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+			</Target>
+			<Target title="release-avs25 x64">
+				<Option output="Linux/release-avs25 x64/common" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Linux/release-avs25 x64" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-DWIN64" />
+					<Add option="-D_AMD64_" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_25" />
+					<Add option="-Wall" />
+					<Add option="-O3" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+			</Target>
+			<Target title="debug-avs26 Win32">
+				<Option output="../../bin/common_d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Linux/debug-avs26 Win32" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-DDEBUG" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_26" />
+					<Add option="-Wall" />
+					<Add option="-O0" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+			</Target>
+			<Target title="debug-avs26 x64">
+				<Option output="../../bin/common_d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Linux/debug-avs26 x64" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-DWIN64" />
+					<Add option="-D_AMD64_" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-DDEBUG" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_26" />
+					<Add option="-Wall" />
+					<Add option="-O0" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+			</Target>
+			<Target title="release-avs26 Win32">
+				<Option output="Linux/release-avs26 Win32/common" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Linux/release-avs26 Win32" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_26" />
+					<Add option="-Wall" />
+					<Add option="-O3" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+			</Target>
+			<Target title="release-avs26 x64">
+				<Option output="Linux/release-avs26 x64/common" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Linux/release-avs26 x64" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-DWIN64" />
+					<Add option="-D_AMD64_" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_LIB" />
+					<Add option="-D_CRT_SECURE_NO_WARNINGS" />
+					<Add option="-DFILTER_AVS_26" />
+					<Add option="-Wall" />
+					<Add option="-O3" />
+					<Add directory="N:/work/boost_1_42_0" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="N:/work/boost_1_42_0" />
+				</ResourceCompiler>
+			</Target>
+		</Build>
+		<Unit filename="../../avs2x/avisynth-2_5.h" />
+		<Unit filename="../../avs2x/avisynth-2_6.h" />
+		<Unit filename="../../avs2x/avs2x.h" />
+		<Unit filename="../../avs2x/clip.h" />
+		<Unit filename="../../avs2x/filter.h" />
+		<Unit filename="../../avs2x/params.h" />
+		<Unit filename="../asm/asm-constants.asm">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../asm/asm-portability.asm">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../asm/asm-simd.asm">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../asm/asm-tools.asm">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../asm/asm.asm">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../asm/common.asm">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="../clip/clip.h" />
+		<Unit filename="../constraints/constraints.cpp" />
+		<Unit filename="../constraints/constraints.h" />
+		<Unit filename="../filter/filter.h" />
+		<Unit filename="../frame/frame.h" />
+		<Unit filename="../functions/functions.asm" />
+		<Unit filename="../functions/functions.cpp" />
+		<Unit filename="../functions/functions.h" />
+		<Unit filename="../params/params.h" />
+		<Unit filename="../parser/parser.cpp" />
+		<Unit filename="../parser/parser.h" />
+		<Unit filename="../parser/symbol.cpp" />
+		<Unit filename="../parser/symbol.h" />
+		<Unit filename="../plane/plane.h" />
+		<Unit filename="../utils/utils.h" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,6 +1,7 @@
 #ifndef __Mt_Edgemask_H__
 #define __Mt_Edgemask_H__
 
+#include <cstring>
 #include "../../../common/base/filter.h"
 
 namespace Filtering { namespace MaskTools { namespace Filters { namespace Mask { namespace Edge {
@@ -184,7 +185,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_edge";
+      Signature signature("mt_edge");
 
       signature.add(Parameter(TYPE_CLIP, ""));
       signature.add(Parameter(String("sobel"), "mode"));

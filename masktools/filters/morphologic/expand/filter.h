@@ -76,9 +76,9 @@ public:
       }
    }
 
-   static Signature Filter::filter_signature()
+   static Signature filter_signature()
    {
-      Signature signature = "mt_expand";
+      Signature signature("mt_expand");
 
       signature.add( Parameter(TYPE_CLIP, "") );
       signature.add( Parameter(255, "thY") );

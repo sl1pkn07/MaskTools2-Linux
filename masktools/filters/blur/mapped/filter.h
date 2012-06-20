@@ -1,6 +1,7 @@
 #ifndef __Mt_Blur_H__
 #define __Mt_Blur_H__
 
+#include <cstring>
 #include "../../../common/base/filter.h"
 
 namespace Filtering { namespace MaskTools { namespace Filters { namespace Blur { namespace Mapped {
@@ -62,7 +63,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_mappedblur";
+      Signature signature("mt_mappedblur");
 
       signature.add(Parameter(TYPE_CLIP, ""));
       signature.add(Parameter(TYPE_CLIP, ""));

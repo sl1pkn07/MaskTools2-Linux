@@ -4,21 +4,21 @@ using namespace Filtering;
 
 typedef Byte (Operator)(Byte, Byte);
 
-static inline Byte upper(Byte x, Byte t) { return x > t ? 0 : 255; }
-static inline Byte lower(Byte x, Byte t) { return x > t ? 255 : 0; }
+inline Byte upper(Byte x, Byte t) { return x > t ? 0 : 255; }
+inline Byte lower(Byte x, Byte t) { return x > t ? 255 : 0; }
 
-static inline Byte binarize_0_x(Byte x, Byte t) { return x > t ? 0 : x; }
-static inline Byte binarize_t_x(Byte x, Byte t) { return x > t ? t : x; }
-static inline Byte binarize_x_0(Byte x, Byte t) { return x > t ? x : 0; }
-static inline Byte binarize_x_t(Byte x, Byte t) { return x > t ? x : t; }
+inline Byte binarize_0_x(Byte x, Byte t) { return x > t ? 0 : x; }
+inline Byte binarize_t_x(Byte x, Byte t) { return x > t ? t : x; }
+inline Byte binarize_x_0(Byte x, Byte t) { return x > t ? x : 0; }
+inline Byte binarize_x_t(Byte x, Byte t) { return x > t ? x : t; }
 
-static inline Byte binarize_t_0(Byte x, Byte t) { return x > t ? t : 0; }
-static inline Byte binarize_0_t(Byte x, Byte t) { return x > t ? 0 : t; }
+inline Byte binarize_t_0(Byte x, Byte t) { return x > t ? t : 0; }
+inline Byte binarize_0_t(Byte x, Byte t) { return x > t ? 0 : t; }
 
-static inline Byte binarize_x_255(Byte x, Byte t) { return x > t ? x : 255; }
-static inline Byte binarize_t_255(Byte x, Byte t) { return x > t ? t : 255; }
-static inline Byte binarize_255_x(Byte x, Byte t) { return x > t ? 255 : x; }
-static inline Byte binarize_255_t(Byte x, Byte t) { return x > t ? 255 : t; }
+inline Byte binarize_x_255(Byte x, Byte t) { return x > t ? x : 255; }
+inline Byte binarize_t_255(Byte x, Byte t) { return x > t ? t : 255; }
+inline Byte binarize_255_x(Byte x, Byte t) { return x > t ? 255 : x; }
+inline Byte binarize_255_t(Byte x, Byte t) { return x > t ? 255 : t; }
 
 
 template <Operator op>

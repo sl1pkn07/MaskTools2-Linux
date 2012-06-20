@@ -45,7 +45,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_clamp";
+      Signature signature("mt_clamp");
 
       signature.add(Parameter(TYPE_CLIP, ""));
       signature.add(Parameter(TYPE_CLIP, ""));

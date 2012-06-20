@@ -24,9 +24,9 @@ public:
       processors.push_back(Filtering::Processor<Processor>(Deflate_deflate8_asse2, Constraint(CPU_SSE2, 8, 1, 16, 16), 4));
    }
 
-   static Signature Filter::filter_signature()
+   static Signature filter_signature()
    {
-      Signature signature = "mt_deflate";
+      Signature signature("mt_deflate");
 
       signature.add( Parameter(TYPE_CLIP, "") );
       signature.add( Parameter(255, "thY") );

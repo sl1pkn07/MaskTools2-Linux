@@ -2,6 +2,7 @@
 #define __Common_Plane_H__
 
 #include "../utils/utils.h"
+#include <cstddef>
 
 namespace Filtering {
 
@@ -45,7 +46,7 @@ public:
    {
       assert( sizeof( Float ) == sizeof( T ) );
    }
-   Plane(const Plane<const Double> &plane) : pPlane(plane), nPitch(plane.pitch()), nWidth(plane.width()), nHeight(plane.height())
+   Plane(const Plane<const Double> &plane) : pPixel(plane), nPitch(plane.pitch()), nWidth(plane.width()), nHeight(plane.height())
    {
       assert( sizeof( Double ) == sizeof( T ) );
    }

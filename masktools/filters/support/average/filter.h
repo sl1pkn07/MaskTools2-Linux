@@ -41,7 +41,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_average";
+      Signature signature("mt_average");
 
       signature.add(Parameter(TYPE_CLIP, ""));
       signature.add(Parameter(TYPE_CLIP, ""));

@@ -60,7 +60,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_lutf";
+      Signature signature("mt_lutf");
 
       signature.add( Parameter( TYPE_CLIP, "" ) );
       signature.add( Parameter( TYPE_CLIP, "" ) );

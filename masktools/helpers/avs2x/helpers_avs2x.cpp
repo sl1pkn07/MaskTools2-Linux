@@ -1,9 +1,14 @@
 #define NOMINMAX
-#if defined(FILTER_AVS_25)
-#include "../../../avs2x/avisynth-2_5.h"
-#elif defined(FILTER_AVS_26)
-#include <windows.h>
-#include "../../../avs2x/avisynth-2_6.h"
+#ifndef __linux__
+#  if defined(FILTER_AVS_25)
+#    include "../../../avs2x/avisynth-2_5.h"
+#  elif defined(FILTER_AVS_26)
+#    include <windows.h>
+#    include "../../../avs2x/avisynth-2_6.h"
+#  endif
+#else
+#  include "../../../avs2x/avxsynth.h"
+   using namespace avxsynth;
 #endif
 #include "../../common/common.h"
 #include "../../helpers/forms/forms.h"

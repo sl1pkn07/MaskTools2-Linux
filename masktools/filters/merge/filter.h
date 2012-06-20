@@ -78,7 +78,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_merge";
+      Signature signature("mt_merge");
 
       signature.add( Parameter( TYPE_CLIP, "" ) );
       signature.add( Parameter( TYPE_CLIP, "" ) );

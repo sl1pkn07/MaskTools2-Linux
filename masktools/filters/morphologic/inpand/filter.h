@@ -77,9 +77,9 @@ public:
       }
    }
 
-   static Signature Filter::filter_signature()
+   static Signature filter_signature()
    {
-      Signature signature = "mt_inpand";
+      Signature signature("mt_inpand");
 
       signature.add( Parameter( TYPE_CLIP, "" ) );
       signature.add( Parameter( 255, "thY" ) );

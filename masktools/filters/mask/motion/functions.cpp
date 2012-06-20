@@ -6,7 +6,7 @@ using namespace Filtering;
 typedef unsigned int (Sad)(Byte *pDst, ptrdiff_t nDstPitch, const Byte *pSrc, ptrdiff_t nSrcPitch, int nWidth, int nHeight);
 typedef void (Mask)(Byte *pDst, ptrdiff_t nDstPitch, const Byte *pSrc, ptrdiff_t nSrcPitch, int nLowThreshold, int nHighThreshold, int nWidth, int nHeight);
 
-static unsigned int sad_c(Byte *pDst, ptrdiff_t nDstPitch, const Byte *pSrc, ptrdiff_t nSrcPitch, int nWidth, int nHeight)
+unsigned int sad_c(Byte *pDst, ptrdiff_t nDstPitch, const Byte *pSrc, ptrdiff_t nSrcPitch, int nWidth, int nHeight)
 {
    unsigned int nSad = 0;
 	for ( int y = 0; y < nHeight; y++ ) 
@@ -19,7 +19,7 @@ static unsigned int sad_c(Byte *pDst, ptrdiff_t nDstPitch, const Byte *pSrc, ptr
    return nSad;
 }
 
-static void mask_c(Byte *pDst, ptrdiff_t nDstPitch, const Byte *pSrc, ptrdiff_t nSrcPitch, int nLowThreshold, int nHighThreshold, int nWidth, int nHeight)
+void mask_c(Byte *pDst, ptrdiff_t nDstPitch, const Byte *pSrc, ptrdiff_t nSrcPitch, int nLowThreshold, int nHighThreshold, int nWidth, int nHeight)
 {
 	for ( int y = 0; y < nHeight; y++ ) 
 	{
@@ -54,8 +54,8 @@ extern "C" Mask Motion_motion8_asse2;
 
 namespace Filtering { namespace MaskTools { namespace Filters { namespace Mask { namespace Motion {
 
-Processor *mask_c       = &mask_t<::sad_c          , ::mask_c            , Functions::memset_c>;
-Processor *mask8_mmx    = &mask_t<::sad_c          , Motion_motion8_mmx  , memset8_mmx>;
+Processor *mask_c       = &mask_t< ::sad_c          , ::mask_c            , Functions::memset_c>;
+Processor *mask8_mmx    = &mask_t< ::sad_c          , Motion_motion8_mmx  , memset8_mmx>;
 Processor *mask8_isse   = &mask_t<Motion_sad8_isse , Motion_motion8_isse , memset8_isse>;
 Processor *mask8_sse2   = &mask_t<Motion_sad8_sse2 , Motion_motion8_sse2 , memset8_isse>;
 Processor *mask8_asse2  = &mask_t<Motion_sad8_asse2, Motion_motion8_asse2, memset8_isse>;

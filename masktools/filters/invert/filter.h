@@ -41,7 +41,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_invert";
+      Signature signature("mt_invert");
 
       signature.add( Parameter( TYPE_CLIP, "" ) );
 

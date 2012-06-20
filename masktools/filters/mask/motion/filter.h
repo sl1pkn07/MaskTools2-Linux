@@ -57,7 +57,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_motion";
+      Signature signature("mt_motion");
 
       signature.add(Parameter(TYPE_CLIP, ""));
       signature.add(Parameter(10, "thY1"));

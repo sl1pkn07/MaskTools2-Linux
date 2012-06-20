@@ -43,7 +43,7 @@ public:
 
    static Signature filter_signature()
    {
-      Signature signature = "mt_hysteresis";
+      Signature signature("mt_hysteresis");
 
       signature.add(Parameter(TYPE_CLIP, ""));
       signature.add(Parameter(TYPE_CLIP, ""));
